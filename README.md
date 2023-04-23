@@ -133,9 +133,9 @@ const Input = (props) => {
     return (
         <div className="input-field">
             <label>
-                {label} <!--acess value from property label-->
+                {label} <!--access value from property label-->
             </label>
-            <input placeholder={placeholder}/> <!--acess value from property placeholder-->
+            <input placeholder={placeholder}/> <!--access value from property placeholder-->
         </div>
     )
 

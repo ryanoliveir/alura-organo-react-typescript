@@ -1,10 +1,13 @@
 import './Input.css';
 
-const Input = () => {
+const Input = (props) => {
+    const { label, placeholder } = props;
     return (
-        <div>
-            <label>Nome</label>
-            <input />
+        <div className="input-field">
+            <label>
+                {label}
+            </label>
+            <input placeholder={placeholder}/>
         </div>
     )
 

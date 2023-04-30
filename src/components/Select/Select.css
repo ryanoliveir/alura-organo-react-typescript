@@ -1,14 +1,14 @@
-.input-field {
-    margin: 24px 0;
+.select-container {
+    display: block;
 }
 
-.input-field label {
+.select-container label {
     display: block;
     margin-bottom: 8px;
     font-size: 24px;
 }
 
-.input-field input {
+.select-container select {
     background-color: #FFF;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
     width: 100%;
@@ -17,4 +17,3 @@
     padding: 24px;
     box-sizing: border-box;
 }
-

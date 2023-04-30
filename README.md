@@ -158,7 +158,124 @@ We can also use components inside another component, like this:
 - We analyzed the available commands in the package.json file.
 
 ## __#2 Working with props__
+
+
+
+Problema que o react resolver
+
+Criado pelo facebook
+Reendirização e comunicação de components
+No começo os componentes eram baseados em classe
+Ele reage ao estados dos componentes do componentes, envolvendo o DOM 
+Não se reendiraza a cada interação do usuário
+Cada perdaço da página pode ir se alterando, separadamente 
+
+
+
+## Teams List
+
+The componente select must be contain a list of teams
+
+### `map`
+
+> Map always scrolls through the list e return and tranform in a diferente list
+
+```tsx
+// ./src/components/Select/index.js
+import './Select.css';
+
+const Select = (props) => {
+    const { label } = props;
+    return (
+        <div>
+            <label> 
+                {label}
+            </label>
+            <select>
+                {
+                    props.item.map(item => {
+                        return <option key={item}>{item}</option>
+                    })
+                    // props.item.map(item => <option>{item}</option>) short version
+                }
+            </select>
+        </div>
+    )
+}
+
+export default Select;
+```
+
+More about map: [forEach ou Map](https://www.alura.com.br/artigos/javascript-quando-devo-usar-foreach-e-map)
+
+### __About key__
+
+> "Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity:"
+
+```tsx
+const todoItems = todos.map((todo) =>
+  <li key={todo.id}>
+    {todo.text}
+  </li>
+);
+```
+
+### __Data bind__
+
+Events:
+
+When a button, inside a form, is clicked,  its default event is submitted the form to page url. To preven the default event, we need to use `preventDefault()` method;
+
+```jsx
+
+// ...
+const onSave = (event) => {
+  event.preventDefault();
+  console.log("Form submission");
+}
+
+return (
+  <section className="form-section">
+    <form onSubmit={onSave}>
+      {/* ... */}
+    </section>
+)
+
+```
+
+> `event`: "The simplest way to create an event is to click somewhere on the page. When you click, a click event is triggered. This event is actually an object containing information about the action that just happened."
+
+> `event.prveventDefaul()` The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
+>
+>For example, this can be useful when:
+>- Clicking on a "Submit" button, prevent it from submitting a form
+>- Clicking on a link, prevent the link from following the URL
+>
+>__Note__: Not all events are cancelable. Use the cancelable property to find out if an event is cancelable.
+>
+>__Note__: The preventDefault() method does not prevent further propagation of an event through the DOM. Use the stopPropagation() method to handle this.
+
+
+#Summary:
+
+1. How to pass props to a component;
+2. How to render lists with `.map()`;
+3. How to work with nested elements using the `children` prop;
+4. How to listen for events triggered by the DOM, such as the `onSubmit` of our form.
+
+The first thing we learned was how to pass props to a React component. Props are properties that we pass to a React component, allowing us to configure its behavior and content in a flexible way.
+
+Next, we learned how to render lists with the `map()` method. `Map()` is a JavaScript array method that allows us to iterate over a list and generate a new array with the results of each iteration. With `map()`, we can dynamically render lists of elements based on data received via props or stored in the component's state.
+
+Additionally, we learned how to work with nested elements using the `children` prop. The `children` prop is a special prop in React that allows us to pass nested JSX elements as props. This is especially useful when working with layout components and wanting to have the ability to add content inside them.
+
+Finally, we learned how to listen for events triggered by the DOM, such as the `onSubmit` of our form. React allows us to add event listeners directly to our components, allowing us to have greater control over their behavior and interaction with the user.
+
 ## __#3 Interacting with User__
+
+
+
+
 ## __#4 Assembling the teams__
 ## __#5 Bug hunting__
 

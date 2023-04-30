@@ -273,7 +273,25 @@ Finally, we learned how to listen for events triggered by the DOM, such as the `
 
 ## __#3 Interacting with User__
 
+> If the component state changes, the component must bu rerender itself
 
+
+### #__controlling states__
+
+
+### useState()
+
+> `useState` is a React Hook the allows us to add a state to a component. The state is a way to store data in a component and update it whenever necessary.
+
+
+
+#Sumary
+
+Yes, in the lesson you learned how to control inputs in a form using the `value` and `onChange` attributes, which allow you to control the input value and react to user changes, respectively.
+
+You also learned how to manage the state of a component using the `useState` hook. `useState` allows you to create a state for your component and update it reactively, meaning that every time the state is updated, the component is re-rendered.
+
+Additionally, you learned how to work with props that are functions, meaning props that pass functions as parameters to other components. This is useful when you need to pass a function from a parent component to a child component so that it can update the state of the parent component.
 
 
 ## __#4 Assembling the teams__

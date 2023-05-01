@@ -161,16 +161,14 @@ We can also use components inside another component, like this:
 
 
 
-Problema que o react resolver
+About react:
 
-Criado pelo facebook
-Reendirização e comunicação de components
-No começo os componentes eram baseados em classe
-Ele reage ao estados dos componentes do componentes, envolvendo o DOM 
-Não se reendiraza a cada interação do usuário
-Cada perdaço da página pode ir se alterando, separadamente 
-
-
+- Created by facebook
+- Component Rendering and Communication
+- In the beginning the components were class-based
+- It reacts to the state of the component's components, wrapping the DOM
+- Does not reset with each user interaction
+- Each loss of the page can change, separately
 
 ## Teams List
 
@@ -275,17 +273,97 @@ Finally, we learned how to listen for events triggered by the DOM, such as the `
 
 > If the component state changes, the component must bu rerender itself
 
+> In React, controlling inputs involves using the value and onChange attributes to control the input value and respond to user changes, respectively. This means that you can create a controlled input by setting its value to a state variable and updating that variable whenever the user types something or makes changes to the input.
 
-### #__controlling states__
+```jsx
+// ./scr/components/Input
+import './Input.css';
 
+const Input = (props) => {
+    const { value, label, placeholder, isRequired } = props;
+
+    // 
+    const onTyped = (event) => {
+        props.onChanged(event.target.value);
+    }
+
+
+    return (
+        <div className="input-field">
+            <label>
+                {label}
+            </label>
+            <input value={value} onChange={onTyped} required={isRequired} placeholder={placeholder}/>
+        </div>
+    )
+
+}
+
+export default Input;
+```
+
+In this code, ``__value__` is being used to control the value of the input field. It is a prop passed into the component from its parent component and is used to set the value of the input field. This means that the input value will be controlled by the parent component and any changes to it will be reflected in the parent component's state.
+
+__`onTyped`__ is a function that is called whenever the user types something into the input field. It is defined within the component and takes an `__event__` parameter. When called, it extracts the current value of the input field from the  `__event__` object and passes it to the onChanged function, which is another prop passed into the component from its parent component. This allows the parent component to handle the input changes and update its state accordingly. So, onTyped serves as a callback function that triggers a specific behavior in the parent component whenever the user types something in the input field.
 
 ### useState()
 
 > `useState` is a React Hook the allows us to add a state to a component. The state is a way to store data in a component and update it whenever necessary.
 
+    "To manage the state of a component in React, you can use the useState hook, which allows you to create and update state variables for your component. When the state is updated, the component re-renders to reflect the updated state."
 
 
-#Sumary
+```jsx
+import { useState } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0); // the count is a var/data; the setCount is the setter for the count property
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+"In this example, `__useState(0)__` is used to initialize the `count` state to 0. The `__setCount__` function can be used to update the state of count. When the user clicks the button, the onClick event calls setCount and increments the count by 1.
+
+Note that the `__useState()__` hook can be called multiple times in a single component to manage multiple state variables."
+
+
+## [?] About spread syntax in JavaScript:
+
+> The spread syntax in JavaScript is represented by three dots (...) and it is used to expand iterable elements such as arrays, objects, and strings into individual elements.
+
+For example, if you have an array `myArray` and you want to create a new array with all the elements of myArray and a few more, you can use the spread syntax like this:
+
+
+```js
+const myArray = [1, 2, 3];
+const newArray = [...myArray, 4, 5];
+console.log(newArray); // Output: [1, 2, 3, 4, 5]
+```
+
+n this example, the spread syntax expands the myArray elements into individual elements and adds the new values 4 and 5 to create a new array newArray.
+
+The spread syntax can also be used to copy arrays and objects, like this:
+
+```js
+const myArray = [1, 2, 3];
+const newArray = [...myArray];
+console.log(newArray); // Output: [1, 2, 3]
+
+const myObject = { name: 'John', age: 30 };
+const newObject = { ...myObject };
+console.log(newObject); // Output: { name: 'John', age: 30 }
+
+```
+"__In these examples, the spread syntax creates a new array and a new object with the same elements and properties as the original ones. This is useful when you want to create a new object or array without modifying the original one.__"
+
+### __#Sumary__
 
 Yes, in the lesson you learned how to control inputs in a form using the `value` and `onChange` attributes, which allow you to control the input value and react to user changes, respectively.
 

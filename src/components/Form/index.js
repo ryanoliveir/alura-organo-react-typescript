@@ -28,13 +28,6 @@ const Form = (props) => {
     const onSave = (event) =>{
         event.preventDefault();
 
-        // onSubmit({
-        //     name: name,
-        //     position: position,
-        //     imageUrl: imageUrl,
-        //     team: team,
-        // })
-
        onSubmit({
             name,
             position,

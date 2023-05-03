@@ -6,36 +6,27 @@ import './Form.css'
 
 
 const Form = (props) => {
-    const { onSubmit } = props;
+    const { teams, onSubmit } = props;
+    
     const [ name, setName ] = useState('');
     const [ position, setPosition ] = useState('');
     const [ imageUrl, setImageUrl ] = useState('');
     const [ team, setTeam ] = useState('');
 
-
-    const teams = [
-        "",
-        "Programação",
-        "Front-End",
-        "Data Science",
-        "Devops",
-        "UX e Design",
-        "Mobile",
-        "Inovação e Gestão"
-
-    ]
-
     const onSave = (event) =>{
         event.preventDefault();
-
-       onSubmit({
+        
+        onSubmit({
             name,
             position,
             imageUrl,
             team,
-       })
+        })
 
-//  
+        setName('')
+        setPosition('')
+        setImageUrl('')
+        setTeam('')
 
     }
 

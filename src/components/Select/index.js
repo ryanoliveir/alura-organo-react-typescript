@@ -8,7 +8,8 @@ const Select = (props) => {
             <label> 
                 {label}
             </label>
-            <select value={value} onChange={event => onChanged(event.target.value)}required={isRequired} >
+            <select value={value} onChange={event => onChanged(event.target.value)} required={isRequired} >
+                <option value=''></option>
                 {
                     items.map(item => {
                         return <option key={item}> {item}</option>

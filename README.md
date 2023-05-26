@@ -1,4 +1,4 @@
-# Organo 
+# Organo 1.0.0
 
 To run:
 
@@ -374,6 +374,49 @@ Additionally, you learned how to work with props that are functions, meaning pro
 
 ## __#4 Assembling the teams__
 ## __#5 Bug hunting__
+
+
+
+# Organo 1.2.0
+
+To this project stage, We need to add a new feature: The application must be able to create a new team in org. 
+
+
+## Framework x Library 
+
+
+### __Library__
+
+A library is a collection of reusable code modules or functions that can be used by 
+applications to perform operation specifica tasks. Libraries focus on providing specific 
+functionalities or solvindo particular problems. They typically oofer a ser of APIs 
+(Application Programming Interfaces) that developers can use to access the library's features.
+Unlike frameworks, libraries don't enforce any particular structure or architecture on the
+application. Examples of libraries include React, TensorFlow, and jQuery.
+
+### __Framework__
+
+A Framework is a comprehensive set of tools, libraries, and rules that provide a structure for
+developing applications. If oftern includes pre-define patters, guidelines, and abstractions that
+help developers build applications more efficiently. Frameworks typically have a skelton that 
+develpers can extend and customize to build their specific appklcation. Examples of frameworks include
+Raby on Rails, Django, and Angular. 
+
+
+
+## __Arrow functions__
+
+```js
+const arrow_function = () => { console.log () }
+arrow_function();
+```
+Arrow functions are a clear and concise method of writing normal/regular JavaScript
+functions in a more accurate  and shorte way. Arrow functions were introduced in the
+ES6 version. They make our code more structed and readable.
+
+Arrow functions are anonymous functions without a name and a not bound by a indentifier.
+__Arrow functions__ don't return any value and can ben declared without the function
+keyword. They are also called __Lambda functions__
 
 
 

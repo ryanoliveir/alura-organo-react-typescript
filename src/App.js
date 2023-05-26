@@ -47,8 +47,13 @@ function App() {
   const [ collaborators, setCollaborators ] = useState([])
 
   const updateCollaborators = (collaborator) => {
-    debugger
     setCollaborators([...collaborators, collaborator])
+  }
+
+
+
+  function deleteCard(){
+    console.log('deleteCard');
   }
 
   return (
@@ -65,6 +70,7 @@ function App() {
               primaryColor={team.primaryColor} 
               secondaryColor={team.secondaryColor} 
               collaborators={collaborators.filter(collaborator => collaborator.team === team.teamName)}
+              onDelete={deleteCard}
             />
           )
         })

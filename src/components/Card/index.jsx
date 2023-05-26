@@ -3,7 +3,6 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 
 const Card = (props) => {
     const { imgUrl, name, position , background, onDelete } = props;
-    console.log(background);
 
     return (
         <div className="card-container">

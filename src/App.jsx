@@ -6,48 +6,54 @@ import Footer from './components/Footer'
 //http://github.com/ryanoliveir.png
 function App() {
 
-  const teams = [
+  
+  
+  const [ collaborators, setCollaborators ] = useState([])
+  const [teams, setTeams] = useState([
     {
       teamName: 'Programação',
-      primaryColor:'#57C278',
-      secondaryColor:'#D9F7E9',
+      color:'#57C278',
     },
     {
       teamName: 'Front-End',
-      primaryColor:'#82CFFA',
-      secondaryColor:'#E8F8FF',
+      color:'#82CFFA',
     },
     {
       teamName: 'Data Science',
-      primaryColor:'#A6D157',
-      secondaryColor:'#F0F8E2',
+      color:'#A6D157',
     },
     {
       teamName: 'Devops',
-      primaryColor:'#E06B69',
-      secondaryColor:'#FDE7E8',
+      color:'#E06B69',
     },
     {
       teamName: 'UX e Design',
-      primaryColor:'#DB6EBF',
-      secondaryColor:'#FAE9F5',
+      color:'#DB6EBF',
     },
     {
       teamName: 'Mobile',
-      primaryColor:'#FFBA05',
-      secondaryColor:'#FFF5D9',
+      color:'#FFBA05',
     },
     {
       teamName: 'Inovação e Gestão',
-      primaryColor:'#FF8A29',
-      secondaryColor:'#FFEEDF',
+      color:'#FF8A29',
     },
 
-  ]
-  const [ collaborators, setCollaborators ] = useState([])
+  ]);
 
   const updateCollaborators = (collaborator) => {
     setCollaborators([...collaborators, collaborator])
+  }
+
+  const changeColor = (color, name) => {
+    setTeams(teams.map(team => {
+      if(team.teamName === name) {
+        team.color = color;
+      }
+
+      return team;
+      
+    }));
   }
 
 
@@ -65,12 +71,12 @@ function App() {
         teams.map(team => {
           return (
             <Team 
-              key={team.teamName} 
-              name={team.teamName} 
-              primaryColor={team.primaryColor} 
-              secondaryColor={team.secondaryColor} 
-              collaborators={collaborators.filter(collaborator => collaborator.team === team.teamName)}
-              onDelete={deleteCard}
+            key={team.teamName} 
+            name={team.teamName} 
+            color={team.color}
+            collaborators={collaborators.filter(collaborator => collaborator.team === team.teamName)}
+            onDelete={deleteCard}
+            onColorChange={changeColor}
             />
           )
         })

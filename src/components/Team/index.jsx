@@ -3,12 +3,11 @@ import Card from '../Card'
 import hexToRgba from 'hex-to-rgba';
 
 const Team = (props) => {
-    const { name, color, collaborators, onDelete, onColorChange } = props;
-
+    const { team, name, color, collaborators, onDelete, onColorChange } = props;
     const getColorToChange = (event) => {
         const newColor = event.target.value
 
-        onColorChange(newColor, name);
+        onColorChange(newColor, team.id);
     }
 
 
@@ -27,8 +26,8 @@ const Team = (props) => {
                     return (
                         <Card 
                           key={collaborator.name}
-                          imgUrl={collaborator.imageUrl}
                           name={collaborator.name}
+                          imageUrl={collaborator.imageUrl}
                           position={collaborator.position}
                           background={color}
                           onDelete={onDelete}

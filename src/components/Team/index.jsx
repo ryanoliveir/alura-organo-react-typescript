@@ -27,6 +27,7 @@ const Team = (props) => {
                         <Card 
                           key={collaborator.name}
                           name={collaborator.name}
+                          collaborator={collaborator}
                           imageUrl={collaborator.imageUrl}
                           position={collaborator.position}
                           background={color}

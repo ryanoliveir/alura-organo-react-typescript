@@ -239,8 +239,8 @@ function App() {
 
 
 
-  function deleteCard(){
-    console.log('deleteCard');
+  function deleteCard(colaborator_id){
+    setCollaborators(collaborators.filter(collaborator => collaborator.id !== colaborator_id));
   }
 
   return (

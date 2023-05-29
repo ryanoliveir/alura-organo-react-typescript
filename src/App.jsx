@@ -237,7 +237,10 @@ function App() {
     }));
   }
 
-
+  function registerTeam(newTeam){
+    console.log(newTeam);
+    setTeams([...teams, {...newTeam, id: uuid()}]);
+  }
 
   function deleteCard(colaborator_id){
     setCollaborators(collaborators.filter(collaborator => collaborator.id !== colaborator_id));
@@ -246,19 +249,23 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <Form teams={teams.map(team => team.teamName)} onSubmit={colaborator => updateCollaborators(colaborator)} />
+      <Form 
+        onRegisterTeam={registerTeam}
+        teams={teams.map(team => team.teamName)} 
+        onSubmit={colaborator => updateCollaborators(colaborator)} 
+      />
       {
      // teams.map(team => <Team key={team.teamName} name={team.teamName} primaryColor={team.primaryColor} secondColor={team.secondaryColor} />)
         teams.map((team, index) => {
           return (
             <Team 
-            key={index} 
-            team={team}
-            name={team.teamName} 
-            color={team.color}
-            collaborators={collaborators.filter(collaborator => collaborator.team === team.teamName)}
-            onDelete={deleteCard}
-            onColorChange={changeColor}
+              key={index} 
+              team={team}
+              name={team.teamName} 
+              color={team.color}
+              collaborators={collaborators.filter(collaborator => collaborator.team === team.teamName)}
+              onDelete={deleteCard}
+              onColorChange={changeColor}
             />
           )
         })

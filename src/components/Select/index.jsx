@@ -11,8 +11,8 @@ const Select = (props) => {
             <select value={value} onChange={event => onChanged(event.target.value)} required={isRequired} >
                 <option value=''></option>
                 {
-                    items.map(item => {
-                        return <option key={item}> {item}</option>
+                    items.map((item, index)=> {
+                        return <option key={index}>{item}</option>
                     })
                 }
             </select>

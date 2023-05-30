@@ -1,7 +1,7 @@
 import './Input.css';
 
 const Input = (props) => {
-    const { value, label, placeholder, isRequired } = props;
+    const { type = 'text', value, label, placeholder, isRequired } = props;
 
 
     const onTyped = (event) => {
@@ -10,11 +10,16 @@ const Input = (props) => {
 
 
     return (
-        <div className="input-field">
+        <div className={`input-field field-${type}`}>
             <label>
                 {label}
             </label>
-            <input value={value} onChange={onTyped} required={isRequired} placeholder={placeholder}/>
+            <input 
+                type={type} 
+                value={value} 
+                onChange={onTyped} 
+                required={isRequired} 
+                placeholder={placeholder}/>
         </div>
     )
 

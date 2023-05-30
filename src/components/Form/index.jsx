@@ -87,6 +87,7 @@ const Form = (props) => {
                     onChanged={value => setTeamName(value)}
                 />
                 <Input 
+                    type="color"
                     label="Cor do time" 
                     placeholder="Digite a cor do time" 
                     isRequired={true}

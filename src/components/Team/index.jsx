@@ -3,7 +3,7 @@ import Card from '../Card'
 import hexToRgba from 'hex-to-rgba';
 
 const Team = (props) => {
-    const { team, name, color, collaborators, onDelete, onColorChange } = props;
+    const { team, name, color, collaborators, onDelete, onColorChange, onFavorite } = props;
     const getColorToChange = (event) => {
         const newColor = event.target.value
 
@@ -32,6 +32,7 @@ const Team = (props) => {
                           position={collaborator.position}
                           background={color}
                           onDelete={onDelete}
+                          onFavorite={onFavorite}
                         />
                     )})
                 }

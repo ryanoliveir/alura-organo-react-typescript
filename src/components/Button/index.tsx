@@ -1,6 +1,12 @@
 import './Button.css';
+import { ReactElement } from 'react';
 
-const Button = (props) => {
+interface ButtonProps {
+    children: ReactElement,
+
+}
+
+const Button = (props : ButtonProps) => {
     const { children } = props;
     return (
         <button className="button-form">

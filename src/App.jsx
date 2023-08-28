@@ -279,7 +279,7 @@ function App() {
 
   return (
     <div className="App">
-      <Banner />
+      <Banner imagePath="/images/banner.png" altText="Main banner"/>
       <Form 
         onRegisterTeam={registerTeam}
         teams={teams.map(team => team.teamName)} 

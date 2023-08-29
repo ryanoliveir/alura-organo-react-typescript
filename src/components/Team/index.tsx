@@ -1,10 +1,26 @@
 import './Team.css';
-import Card from '../Card'
+import { Collaborator } from '@interfaces/Collaborator';
+import { Team } from '@interfaces/Team';
+// '
+import Card from '@components/Card'
 import hexToRgba from 'hex-to-rgba';
 
-const Team = (props) => {
-    const { team, name, color, collaborators, onDelete, onColorChange, onFavorite } = props;
-    const getColorToChange = (event) => {
+
+
+interface TeamProps {
+    color: string
+    name: string
+    collaborators: Array<Collaborator>
+    team: Team
+    onDelete: (id: string) => void
+    onFavorite: (id: string) => void
+    onColorChange: (newColor: string, id:string) => void
+}
+
+
+const Team = ({ team, name, color, collaborators, onDelete, onColorChange, onFavorite }: TeamProps) => {
+
+    const getColorToChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newColor = event.target.value
 
         onColorChange(newColor, team.id);
@@ -22,7 +38,7 @@ const Team = (props) => {
             />
             <h3 style={{ borderColor: color }}> {name} </h3>
             <div className='cards'>
-                { collaborators.map((collaborator, index) => {
+                { collaborators.map((collaborator: Collaborator, index: number) => {
                     return (
                         <Card 
                           key={collaborator.name}

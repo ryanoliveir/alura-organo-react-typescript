@@ -1,8 +1,21 @@
 import './Card.css'
 import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
+import { Collaborator } from '@interfaces/Collaborator'
 
-const Card = (props) => {
-    const { imageUrl, name, collaborator, position , background, onDelete, onFavorite } = props;
+interface CardProps {
+    name: string
+    imageUrl: string
+    collaborator: Collaborator
+    position: string
+    background: string
+    onDelete: (id: string) => void
+    onFavorite: (id: string) => void
+    
+
+}
+
+const Card = ({ imageUrl, name, collaborator, position , background, onDelete, onFavorite }: CardProps) => {
+
 
     function favoriteHandler(){
         onFavorite(collaborator.id);

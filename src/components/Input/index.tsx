@@ -1,11 +1,21 @@
+import React from 'react';
 import './Input.css';
 
-const Input = (props) => {
-    const { type = 'text', value, label, placeholder, isRequired } = props;
+interface InputProps {
+    onChanged: (value: string) => void;
+    placeholder: string
+    type: string
+    label: string
+    isRequired: boolean
+    value: string
+}
+
+const Input = ({ type = 'text', value, label, placeholder, onChanged, isRequired }:InputProps ) => {
 
 
-    const onTyped = (event) => {
-        props.onChanged(event.target.value);
+
+    const onTyped = (event: React.ChangeEvent<HTMLInputElement>) => {
+        onChanged(event.target.value);
     }
 
 

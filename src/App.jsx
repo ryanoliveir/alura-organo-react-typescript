@@ -282,7 +282,7 @@ function App() {
       <Banner imagePath="/images/banner.png" altText="Main banner"/>
       <Form 
         onRegisterTeam={registerTeam}
-        teams={teams.map(team => team.teamName)} 
+        teamsNames={teams.map(team => team.teamName)} 
         onSubmit={colaborator => updateCollaborators(colaborator)} 
       />
       {

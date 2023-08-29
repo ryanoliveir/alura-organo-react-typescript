@@ -1,7 +1,8 @@
 export interface Collaborator {
-    id: string;
+    id?: string;
     name: string
     imageUrl: string
     position: string
-    favorite: boolean
+    favorite?: boolean
+    team?: string
 }

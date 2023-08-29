@@ -4,13 +4,13 @@ import './Input.css';
 interface InputProps {
     onChanged: (value: string) => void;
     placeholder: string
-    type: string
+    type?: string
     label: string
-    isRequired: boolean
+    isRequired?: boolean
     value: string
 }
 
-const Input = ({ type = 'text', value, label, placeholder, onChanged, isRequired }:InputProps ) => {
+const Input = ({ type = 'text', value, label, placeholder, onChanged, isRequired = false }:InputProps ) => {
 
 
 

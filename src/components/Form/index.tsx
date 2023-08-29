@@ -3,11 +3,20 @@ import Input from '../Input'
 import Select from '../Select'
 import Button from '../Button'
 import './Form.css'
+import { Collaborator } from '@interfaces/Collaborator'
+import { Team } from '@interfaces/Team'
 
 
-const Form = (props) => {
-    const { teams, onSubmit, onRegisterTeam } = props;
-    
+
+
+interface FromProps {
+    teamsNames: Array<string>
+    onSubmit: (collaborator: Collaborator) => void
+    onRegisterTeam: (team: Team) => void
+}
+
+const Form = ({ teamsNames, onSubmit, onRegisterTeam }:FromProps ) => {
+  
     const [ name, setName ] = useState('');
     const [ position, setPosition ] = useState('');
     const [ imageUrl, setImageUrl ] = useState('');
@@ -16,7 +25,7 @@ const Form = (props) => {
     const [ teamName, setTeamName ] = useState('');
     const [ teamColor, setTeamColor ] = useState('');
 
-    const onSave = (event) =>{
+    const onSave = (event: React.FormEvent<HTMLFormElement>) =>{
         event.preventDefault();
         
         onSubmit({
@@ -56,14 +65,13 @@ const Form = (props) => {
                 <Input 
                     label="Image" 
                     placeholder="Informe o endereço da imagem" 
-                    isRequired={true}
                     value={imageUrl}
                     onChanged={ value => setImageUrl(value)}
 
                 />
                 <Select 
                     label="Times" 
-                    items={teams} 
+                    teamNames={teamsNames} 
                     isRequired={true}
                     value={team} 
                     onChanged={value => setTeam(value)}

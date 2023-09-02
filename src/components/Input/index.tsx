@@ -4,7 +4,7 @@ import './Input.css';
 interface InputProps {
     onChanged: (value: string) => void;
     placeholder: string
-    type?: string
+    type?: 'text' | 'password' | 'date' | 'email' | 'number' | 'color'
     label: string
     isRequired?: boolean
     value: string

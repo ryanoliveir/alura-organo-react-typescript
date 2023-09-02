@@ -43,11 +43,13 @@ const Team = ({ team, name, color, collaborators, onDelete, onColorChange, onFav
                     return (
                         <Card 
                           key={collaborator.name}
+                          id={collaborator.id}
                           name={collaborator.name}
                           collaborator={collaborator}
                           imageUrl={collaborator.imageUrl}
                           position={collaborator.position}
                           background={color}
+                          date={collaborator.date as string}
                           onDelete={onDelete}
                           onFavorite={onFavorite}
                         />

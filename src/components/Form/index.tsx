@@ -3,6 +3,7 @@ import Input from '../Input'
 import Select from '../Select'
 import Button from '../Button'
 import './Form.css'
+import { v4 as uuid } from 'uuid';
 import { Collaborator } from '@interfaces/Collaborator'
 import { Team } from '@interfaces/Team'
 
@@ -21,6 +22,7 @@ const Form = ({ teamsNames, onSubmit, onRegisterTeam }:FromProps ) => {
     const [ position, setPosition ] = useState('');
     const [ imageUrl, setImageUrl ] = useState('');
     const [ team, setTeam ] = useState('');
+    const [ date, setDate ] = useState('');
 
     const [ teamName, setTeamName ] = useState('');
     const [ teamColor, setTeamColor ] = useState('');
@@ -29,16 +31,19 @@ const Form = ({ teamsNames, onSubmit, onRegisterTeam }:FromProps ) => {
         event.preventDefault();
         
         onSubmit({
+            id: uuid(),
             name,
             position,
             imageUrl,
             team,
+            date,
         })
 
         setName('')
         setPosition('')
         setImageUrl('')
         setTeam('')
+        setDate('');
 
         
 
@@ -69,6 +74,14 @@ const Form = ({ teamsNames, onSubmit, onRegisterTeam }:FromProps ) => {
                     onChanged={ value => setImageUrl(value)}
 
                 />
+                <Input 
+                    label="" 
+                    placeholder="" 
+                    value={date}
+                    type="date"
+                    onChanged={ value => setDate(value)}
+
+                />
                 <Select 
                     label="Times" 
                     teamNames={teamsNames} 
@@ -84,7 +97,11 @@ const Form = ({ teamsNames, onSubmit, onRegisterTeam }:FromProps ) => {
 
             <form onSubmit={(event) => {
                 event.preventDefault();
-                onRegisterTeam({teamName: teamName, color: teamColor});
+                onRegisterTeam({
+                    teamName: teamName, 
+                    color: teamColor,
+                    id: uuid()
+                });
             }}>
                 <h1>Preencha os dados para criar um novo time</h1>
                 <Input 
@@ -95,7 +112,7 @@ const Form = ({ teamsNames, onSubmit, onRegisterTeam }:FromProps ) => {
                     onChanged={value => setTeamName(value)}
                 />
                 <Input 
-                    type="color"
+                    type='color'
                     label="Cor do time" 
                     placeholder="Digite a cor do time" 
                     isRequired={true}

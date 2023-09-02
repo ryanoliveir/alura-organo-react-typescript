@@ -4,5 +4,5 @@ export interface Collaborator {
     imageUrl: string
     position: string
     favorite?: boolean
-    team?: string
+    team: string
 }

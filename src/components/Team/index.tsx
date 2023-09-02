@@ -8,6 +8,7 @@ import hexToRgba from 'hex-to-rgba';
 
 
 interface TeamProps {
+    id: string
     color: string
     name: string
     collaborators: Array<Collaborator>
@@ -38,7 +39,7 @@ const Team = ({ team, name, color, collaborators, onDelete, onColorChange, onFav
             />
             <h3 style={{ borderColor: color }}> {name} </h3>
             <div className='cards'>
-                { collaborators.map((collaborator: Collaborator, index: number) => {
+                { collaborators?.map((collaborator: Collaborator) => {
                     return (
                         <Card 
                           key={collaborator.name}

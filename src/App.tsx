@@ -4,11 +4,10 @@ import Team from './components/Team';
 import Footer from './components/Footer'
 import { v4 as uuid } from 'uuid';
 import { useState } from 'react';
+import { Collaborator } from '@interfaces/Collaborator';
 //http://github.com/ryanoliveir.png
 function App() {
 
-  
-  
   const [teams, setTeams] = useState([
     {
       id: uuid(),
@@ -244,13 +243,14 @@ function App() {
     },
   ]
 
-  const [collaborators, setCollaborators] = useState(initial);
+  // const [collaborators, setCollaborators] = useState(initial);
+  const [collaborators, setCollaborators] = useState<Collaborator[]>(initial);
 
-  const updateCollaborators = (collaborator) => {
-    setCollaborators([...collaborators, collaborator])
+  const updateCollaborators = (collaborator: Collaborator) => {
+    setCollaborators([...collaborators, collaborator]);
   }
 
-  const changeColor = (color, id) => {
+  const changeColor = (color: string, id: string) => {
     setTeams(teams.map(team => {
       if(team.id === id) {
         team.color = color;
@@ -261,16 +261,15 @@ function App() {
     }));
   }
 
-  function registerTeam(newTeam){
-    console.log(newTeam);
+  function registerTeam(newTeam: Team){
     setTeams([...teams, {...newTeam, id: uuid()}]);
   }
 
-  function deleteCard(colaborator_id){
+  function deleteCard(colaborator_id: string){
     setCollaborators(collaborators.filter(collaborator => collaborator.id !== colaborator_id));
   }
 
-  function handlerFavorite(id) {
+  function handlerFavorite(id: string) {
     setCollaborators(collaborators.map(collaborator => {
       if(collaborator.id === id) collaborator.favorite = !collaborator.favorite;
       return collaborator;
@@ -286,11 +285,11 @@ function App() {
         onSubmit={colaborator => updateCollaborators(colaborator)} 
       />
       {
-     // teams.map(team => <Team key={team.teamName} name={team.teamName} primaryColor={team.primaryColor} secondColor={team.secondaryColor} />)
         teams.map((team, index) => {
           return (
             <Team 
               key={index} 
+              id={team.id}
               team={team}
               name={team.teamName} 
               color={team.color}
